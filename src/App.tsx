@@ -1,22 +1,25 @@
 import * as React from 'react';
 import './App.css';
+import {Web3Provider} from './Web3';
+import {Web3Consumer} from './Web3';
+import Dashboard from './Dashboard';
 
 import logo from './logo.svg';
 
 class App extends React.Component {
   public render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </div>
+      <Web3Provider>
+        <div className="App">
+          <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo"/>
+            <h1 className="App-title">Welcome to React</h1>
+          </header>
+          <Dashboard />
+        </div>
+      </Web3Provider>
     );
   }
 }
 
-export default App;
+export default Web3Consumer(App);
